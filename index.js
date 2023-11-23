@@ -6,6 +6,7 @@ const {connection}=require("./config/db")
 const {UserModel}=require("./model/User.model")
 const {auth}=require("./middelware/auth")
 const {tweetRouter}=require("./routes/Tweet.routes")
+const cors=require("cors")
 
 
 
@@ -13,6 +14,9 @@ const {tweetRouter}=require("./routes/Tweet.routes")
 const app=express();
 
 app.use(express.json());
+app.use(cors({
+    origin:"*"
+}))
 
 
 app.get("/",(req,res)=>{
